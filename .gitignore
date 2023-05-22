@@ -1,2 +1,9 @@
 # data
 data_exploration/data/*
+
+
+
+
+# dont ignore those
+!data_exploration/data/1/meta.txt
+
