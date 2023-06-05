@@ -3,7 +3,7 @@ import streamlit as st
 from welcomepage import welcome_page
 from textverarbeitung import text_page
 from modellinfo import modell_page
-
+from speech_to_text import speech_to_text_page
 
 st.set_page_config(
     page_title = "Projektrealisierung",
@@ -24,7 +24,7 @@ with st.sidebar:
     draw_all("sidebar")
 
 def main():
-    menu = ["--select--", "Textverarbeitung",  "Modellinformationen"]
+    menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text"]
     page = st.sidebar.selectbox("Choose your page:", menu)
 
     if page =="--select--":
@@ -36,6 +36,8 @@ def main():
     elif page == "Modellinformationen":
         modell_page()
 
+    elif page == "Speech-to-text":
+        speech_to_text_page()
 
 if __name__ == "__main__":
     main()
