@@ -15,7 +15,7 @@ def draw_all(key,plot=False):
     # Projektrealisierungs Frontend
 
     ## Folgende Pages können gefunden werden
-    1. Text Klassifizierung/ Kompression
+    1. Textverarbeitung
     2. Modellinformationen
 
     """)
@@ -25,7 +25,7 @@ with st.sidebar:
 
 def main():
     menu = ["--select--", "Textverarbeitung",  "Modellinformationen"]
-    page = st.sidebar.selectbox("Wähle die Page:", menu)
+    page = st.sidebar.selectbox("Choose your page:", menu)
 
     if page =="--select--":
         welcome_page()
