@@ -5,7 +5,7 @@ import speech_recognition as sr
 def speech_to_text_page():
     st.title("Real-Time Speech-to-text")
     st.write("---")
-
+ 
     start_recording = st.button("Start Recording")
     stop_recording = st.button("Stop Recording")
 
@@ -31,9 +31,10 @@ def transcribe_audio():
             audio = r.listen(source)
             
             try:
-                text1 = r.recognize_google(audio)
-                print("Das ist der eingegebene Text:", text1)
-                st.text(text1)
+                transcription_object_1 = r.recognize_google(audio)
+                print("Das ist der eingegebene Text:", transcription_object_1)
+                st.text(transcription_object_1)
+
                 if text1 == 'quit':
                     break
             except:
