@@ -33,9 +33,9 @@ def transcribe_audio():
             try:
                 transcription_object_1 = r.recognize_google(audio)
                 print("Das ist der eingegebene Text:", transcription_object_1)
-                st.text(transcription_object_1)
+                st.text("Erkannt: ", transcription_object_1)
 
-                if text1 == 'quit':
+                if transcription_object_1 == 'quit':
                     break
             except:
-                st.text('Please try again!')
+                st.text('Could not understand. Please try again!')
