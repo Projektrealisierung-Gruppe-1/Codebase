@@ -1,5 +1,5 @@
-# Entwicklung eines Tools zur Textzusammenfassung und Kategorisierung
-## Projektrealisierung_Gruppe_1
+# Projektrealisierung_Gruppe_1
+### Entwicklung eines NLP Tools zur Textzusammenfassung- und Kategorisierung
 
 Contributors: Joshua Brenzinger, Constantin Rech, Pascal Breucker, Luis Steinert
 
