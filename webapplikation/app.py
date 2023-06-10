@@ -4,6 +4,7 @@ from welcomepage import welcome_page
 from textverarbeitung import text_page
 from modellinfo import modell_page
 from speech_to_text import speech_to_text_page
+from accessability_contrast import accessability_page
 
 st.set_page_config(
     page_title = "Projektrealisierung",
@@ -24,7 +25,7 @@ with st.sidebar:
     draw_all("sidebar")
 
 def main():
-    menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text"]
+    menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text", "Accessability"]
     page = st.sidebar.selectbox("Choose your page:", menu)
 
     if page =="--select--":
@@ -38,6 +39,9 @@ def main():
 
     elif page == "Speech-to-text":
         speech_to_text_page()
+    elif page == "Accessability":
+        accessability_page()
+
 
 if __name__ == "__main__":
     main()
