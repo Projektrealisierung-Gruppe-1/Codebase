@@ -156,6 +156,7 @@ spacy==3.5.0
 spacy-legacy==3.0.12
 spacy-loggers==1.0.4
 spacy-streamlit==1.0.4
+speechrecognition==3.10.0
 srsly==2.4.5
 st-annotated-text==3.0.0
 stack-data==0.2.0
