@@ -1,9 +1,10 @@
 # data
 data_exploration/data/*
 
+venv_projektrealisierung/*
 
 
 
 # dont ignore those
 !data_exploration/data/1/meta.txt
-
+!data_exploration/data/complete_data_subset_link.txt
