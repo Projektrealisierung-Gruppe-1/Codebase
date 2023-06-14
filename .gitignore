@@ -3,6 +3,9 @@ data_exploration/data/*
 
 venv_projektrealisierung/*
 .venv/*
+mlruns
+Evaluation/results
+*.csv
 
 
 # dont ignore those
