@@ -11,6 +11,7 @@ st.set_page_config(
     layout="wide"
     )
 
+# displays a header and a list of available pages.
 def draw_all(key,plot=False):
     st.write("""
     # Projektrealisierungs Frontend
@@ -23,7 +24,8 @@ def draw_all(key,plot=False):
 
 with st.sidebar:
     draw_all("sidebar")
-
+    
+# entry point of the application
 def main():
     menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text", "Accessability"]
     page = st.sidebar.selectbox("Choose your page:", menu)

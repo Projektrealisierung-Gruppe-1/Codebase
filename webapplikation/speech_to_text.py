@@ -2,6 +2,7 @@ import pyaudio
 import streamlit as st
 import speech_recognition as sr
 
+# main function for the speech-to-text page. displaying the title of the page and a horizontal line.
 def speech_to_text_page():
     st.title("Real-Time Speech-to-text")
     st.write("---")
@@ -16,7 +17,7 @@ def speech_to_text_page():
     if stop_recording:
         st.session_state.stop_recording = True
 
-
+#  initiate speech recognition if button is clicked
 def transcribe_audio():
     # initialize
     r = sr.Recognizer()
