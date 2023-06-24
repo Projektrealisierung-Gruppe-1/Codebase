@@ -4,8 +4,9 @@ import fragments
 import util
 from util import ThemeColor
 
-def accessability_page():
+def accessability_page(): # generating a color theme editor page in a Streamlit application
 
+    # define a list of preset colors
     preset_colors: list[tuple[str, ThemeColor]] = [
     ("Default light", ThemeColor(
             primaryColor="#ff4b4b",
@@ -55,11 +56,9 @@ def accessability_page():
         set_color('secondaryBackgroundColor', default_color.secondaryBackgroundColor)
         set_color('textColor', default_color.textColor)
 
-
     st.title("Streamlit color theme editor")
 
-
-    def on_preset_color_selected():
+    def on_preset_color_selected():  # set the colors of the page to the selected preset color.
         _, color = preset_colors[st.session_state.preset_color]
         set_color('primaryColor', color.primaryColor)
         set_color('backgroundColor', color.backgroundColor)

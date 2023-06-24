@@ -5,7 +5,7 @@ import streamlit as st
 import wcag_contrast_ratio as contrast
 import util
 
-
+# display a contrast summary between a foreground color and a background color.
 def contrast_summary(label: str, foreground_rgb_hex: str, background_rgb_hex: str) -> None:
     rgb_foreground = util.parse_hex(foreground_rgb_hex)
     rgb_background = util.parse_hex(background_rgb_hex)
@@ -23,7 +23,7 @@ def contrast_summary(label: str, foreground_rgb_hex: str, background_rgb_hex: st
 
     st.markdown(f'<p style="color: {foreground_rgb_hex}; background-color: {background_rgb_hex}; padding: 12px">Lorem ipsum</p>', unsafe_allow_html=True)
 
-
+# display a set of sample components for testing accessibility. 
 def sample_components(key: str):
     st.header("Sample components")
     st.text_input("Text input", key=f"{key}:text_input")
