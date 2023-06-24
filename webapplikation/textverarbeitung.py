@@ -1,5 +1,5 @@
 import streamlit as st
-
+from classification import classfier,sentiment
 
 
 def text_page():
@@ -20,16 +20,23 @@ def text_page():
     st.header("Analyse des Textes")
     st.subheader("Klassifizierungen")
 
-    c1,c2 =  st.columns([1, 1])
+    if txt != "":
+        c1,c2 =  st.columns([1, 1])
 
-    c1.markdown("**Resort Klassifzierung**")
-    c1.write("...")
+        c1.markdown("**Resort Klassifzierung**")
+        with st.spinner('Classification wird durchgeführt...'):
+            txtpred = classfier(txt)
+        c1.write(f"Der Text ist aus der Kategorie {txtpred}.")
 
-    c2.markdown("**Sentiment Analyse**")
-    c2.write("...")
+        c2.markdown("**Sentiment Analyse**")
+        with st.spinner('Sentiment Analyse wird durchgeführt...'):
+                        prob, pred = sentiment(txt)
 
-    st.subheader("Text Zusammenfassung")
-    st.text("....")
+
+        c2.write(f"Mit einer Wahrscheinlichkeit von {prob}% sagt das Modell voraus, dass dieser Text {pred} ist.")
+
+        st.subheader("Text Zusammenfassung")
+        st.text("....")
     
 
     st.write("---")
