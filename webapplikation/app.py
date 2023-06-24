@@ -24,8 +24,8 @@ def draw_all(key,plot=False):
 
 with st.sidebar:
     draw_all("sidebar")
-    
-# entry point of the application
+
+# entry point of the application for displaying the different pages
 def main():
     menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text", "Accessability"]
     page = st.sidebar.selectbox("Choose your page:", menu)
