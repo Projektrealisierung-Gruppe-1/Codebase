@@ -1,5 +1,6 @@
 import streamlit as st
 from classification import classfier,sentiment
+from speech_to_text import transcribe_audio_imp
 
 
 def text_page():
@@ -7,10 +8,37 @@ def text_page():
     st.title("Textverarbeitung")
     st.write("---")
     st.header("Text Gegebenheit")
-    
-    uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
-    st.write("oder")
-    txt = st.text_area("Your text:",key= "NLP")
+
+    optch = st.radio(
+        "Dateneingabe",
+        ["Textfeld", "Dateiupload","Speech to Text"],
+        horizontal=True,
+    )
+
+    st.write("---")
+
+    if optch == "Dateiupload":
+        uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
+
+    elif optch == "Textfeld":
+        txt = st.text_area("Your text:",key= "NLP")
+
+    elif optch == "Speech to Text":
+        txt = ""
+        start_recording = st.button("Start Recording")
+        stop_recording = st.button("Stop Recording")
+
+        if start_recording:
+            with st.spinner('Bitte sprechen, Text wird erkannt...'):      
+                st.session_state.stop_recording = False
+                txt = transcribe_audio_imp()
+
+        if stop_recording:
+            st.session_state.stop_recording = True
+        if txt == "":
+            pass
+        else:
+            st.write(f"Der erkannte Text ist: {txt}")
 
 
 
@@ -23,7 +51,7 @@ def text_page():
     if txt != "":
         c1,c2 =  st.columns([1, 1])
 
-        c1.markdown("**Resort Klassifzierung**")
+        c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
             txtpred = classfier(txt)
         c1.write(f"Der Text ist aus der Kategorie {txtpred}.")
@@ -51,7 +79,7 @@ def text_page():
     if d1 != False or d2 != False or d3 != False:
         genre = col2.radio(
         "Dateiformat",
-        ('PDF', 'Wordx', 'txt'))
+        ('docx', 'pdf', 'txt'))
 
         text_contents = '''This is some text'''
         st.download_button('Download Zusammenfassung', text_contents)

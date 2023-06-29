@@ -40,3 +40,27 @@ def transcribe_audio():
                     break
             except:
                 st.text('Could not understand. Please try again!')
+
+
+def transcribe_audio_imp():
+    # initialize
+    r = sr.Recognizer()
+
+    while st.session_state.stop_recording == False:
+        with sr.Microphone() as source:
+            # clear background noise
+            r.adjust_for_ambient_noise(source, duration=0.3)
+            
+            st.text("Recording started... Please speak now")
+            # capture the audio
+            audio = r.listen(source)
+            
+            try:
+                transcription_object_1 = r.recognize_google(audio)
+
+                if transcription_object_1 == 'quit':
+                    break
+            except:
+                transcription_object_1 = 'Could not understand. Please try again!'
+    
+    return transcription_object_1

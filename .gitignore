@@ -6,7 +6,7 @@ venv_projektrealisierung/*
 mlruns
 Evaluation/results
 *.csv
-
+webapplikation/speechtotext.py
 
 # dont ignore those
 !data_exploration/data/1/meta.txt
