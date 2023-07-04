@@ -1,6 +1,7 @@
 import streamlit as st
 from classification import classfier,sentiment
 from speech_to_text import transcribe_audio_imp
+from io import StringIO
 
 
 def text_page():
@@ -18,7 +19,15 @@ def text_page():
     st.write("---")
 
     if optch == "Dateiupload":
-        uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
+        uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt','doc'])
+        st.write(uploaded_file.type)
+        st.write("stringio content")
+        
+        stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+        string_data = stringio.read()
+        
+        st.write(string_data)
+
 
     elif optch == "Textfeld":
         txt = st.text_area("Your text:",key= "NLP")
@@ -39,8 +48,8 @@ def text_page():
             pass
         else:
             st.write(f"Der erkannte Text ist: {txt}")
-
-
+    
+    
 
     age = st.slider('Kompressionsrate', 20, 80, 60)
 
