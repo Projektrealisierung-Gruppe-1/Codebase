@@ -46,3 +46,5 @@ urllib3==2.0.2
 validators==0.20.0
 wcag-contrast-ratio==0.9
 zipp==3.15.0
+docx2txt==0.8
+comtypes==1.2.0
