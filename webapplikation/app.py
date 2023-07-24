@@ -6,10 +6,34 @@ from modellinfo import modell_page
 from speech_to_text import speech_to_text_page
 from accessability_contrast import accessability_page
 
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
+
+# layout config
 st.set_page_config(
     page_title = "Projektrealisierung",
     layout="wide"
     )
+
+# authentification / login
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
+
+# create authenticator
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
+
+# render login widget+
+# decomment next line to enable authentification
+# name, authentication_status, username = authenticator.login('Login', 'main')
+
+
 
 # displays a header and a list of available pages.
 def draw_all(key,plot=False):
@@ -47,4 +71,18 @@ def main():
 
 
 if __name__ == "__main__":
+    # change comments to enable authentification
+    
+    # hide content if not authenticated
+    # if authentication_status:
+    #     authenticator.logout('Logout', 'main')
+    #     st.write(f'Welcome *{name}*')
+    #     main()
+    # elif authentication_status == False:
+    #     st.error('Username/password is incorrect')
+    # elif authentication_status == None:
+    #     st.warning('Please enter your username and password')
+        
     main()
+
+    

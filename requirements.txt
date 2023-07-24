@@ -35,6 +35,7 @@ six==1.16.0
 smmap==5.0.0
 SpeechRecognition==3.10.0
 streamlit==1.22.0
+streamlit-authenticator==0.2.2
 tenacity==8.2.2
 toml==0.10.2
 toolz==0.12.0
@@ -48,3 +49,4 @@ wcag-contrast-ratio==0.9
 zipp==3.15.0
 docx2txt==0.8
 comtypes==1.2.0
+transformers
