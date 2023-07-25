@@ -52,4 +52,3 @@ comtypes==1.2.0
 transformers
 bert-extractive-summarizer
 torch
-textract
