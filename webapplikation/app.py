@@ -51,7 +51,7 @@ with st.sidebar:
 
 # entry point of the application for displaying the different pages
 def main():
-    menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Speech-to-text", "Accessability"]
+    menu = ["--select--", "Textverarbeitung",  "Modellinformationen", "Accessability"]
     page = st.sidebar.selectbox("Choose your page:", menu)
 
     if page =="--select--":
@@ -63,8 +63,8 @@ def main():
     elif page == "Modellinformationen":
         modell_page()
 
-    elif page == "Speech-to-text":
-        speech_to_text_page()
+    # elif page == "Speech-to-text":
+    #     speech_to_text_page()
         
     elif page == "Accessability":
         accessability_page()
