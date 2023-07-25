@@ -1,7 +1,7 @@
 import streamlit as st
 from classification import classfier,sentiment,txtsummary
 import docx2txt
-import textract
+# import textract
 import pandas as pd
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
