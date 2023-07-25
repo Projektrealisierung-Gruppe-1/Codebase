@@ -1,11 +1,12 @@
 import streamlit as st
 from classification import classfier,sentiment,txtsummary
 import docx2txt
+from downloadcreator import pdfcreator,docxcreator
 # import textract
 import pandas as pd
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
-import os
+import io
 import deepl
 
 from transformers import pipeline
@@ -132,12 +133,14 @@ def text_page():
         c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
             txtpred = classfier(zsm_txt)
-        c1.write(f"Der Text ist aus der Kategorie {txtpred}.")
+        kltxt = f"Der Text ist aus der Kategorie {txtpred}."
+        c1.write(kltxt)
 
         c2.markdown("**Sentiment Analyse**")
         with st.spinner('Sentiment Analyse wird durchgeführt...'):
                         prob, pred = sentiment(zsm_txt)
-        c2.write(f"Mit einer Wahrscheinlichkeit von {prob}% sagt das Modell voraus, dass dieser Text {pred} ist.")
+        senttxt = f"Mit einer Wahrscheinlichkeit von {prob}% sagt das Modell voraus, dass dieser Text {pred} ist."
+        c2.write(senttxt)
 
         
     else:
@@ -146,20 +149,34 @@ def text_page():
 
     st.write("---")
     st.header("Download der Ergebnnisse")
-    st.subheader("Welche Ergebnisse sollen im Download sein")
-    col1, col2 = st.columns([1, 1])
-    
-    d1 = col1.checkbox("Text Resort")
-    d2 = col1.checkbox("Text Sentiment")
-    d3 = col1.checkbox("Text Zusammenfassung")
+    genre = st.radio(
+    "Dateiformat",
+    ('docx', 'pdf', 'txt'))
 
-    if d1 != False or d2 != False or d3 != False:
-        genre = col2.radio(
-        "Dateiformat",
-        ('docx', 'pdf', 'txt'))
+    text_contents = '''This is some text'''
+    if genre == "pdf":
+        pdfcreator(txt,zsm_txt,kltxt,senttxt)
+        with open("download.pdf", "rb") as pdf_file:
+            PDFbyte = pdf_file.read()
 
-        text_contents = '''This is some text'''
-        st.download_button('Download Zusammenfassung', text_contents)
+        st.download_button(label="Download Zusammenfassung!",
+                            data=PDFbyte,
+                            file_name="Download_Bericht.pdf",
+                            )
+    elif genre == "docx":
+        doc = docxcreator(txt,zsm_txt,kltxt,senttxt)
+        bio = io.BytesIO()
+        doc.save(bio)
+        st.download_button(label="Download Zusammenfassung!",
+                            data=bio.getvalue(),
+                            file_name="Download_Bericht.docx",
+                            )
+        
+    elif genre == "txt":
+         pass
+
+
+    st.download_button('Download Zusammenfassung', text_contents)
 
 
 
