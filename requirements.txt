@@ -50,3 +50,5 @@ zipp==3.15.0
 docx2txt==0.8
 comtypes==1.2.0
 transformers
+bert-extractive-summarizer
+torch
