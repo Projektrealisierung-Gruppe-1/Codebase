@@ -115,7 +115,7 @@ def text_page():
     if txt != "":
         st.subheader("Text Zusammenfassung")
         with st.spinner('Text wird zusammengefasst...'):
-                        zsm_txt = txtsummary(txt,crate/100)
+                        zsm_txt = txtsummary(txt,1-(crate/100))
         st.write(zsm_txt)
 
         st.markdown("""
