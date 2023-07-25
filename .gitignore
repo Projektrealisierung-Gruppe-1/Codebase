@@ -8,7 +8,7 @@ Evaluation/results
 *.csv
 webapplikation/speechtotext.py
 
-webapplikation/__pycache__
+webapplikation/__*
 
 # dont ignore those
 !data_exploration/data/1/meta.txt
