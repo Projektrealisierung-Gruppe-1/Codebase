@@ -1,16 +1,36 @@
 from transformers import pipeline, AutoTokenizer
 import streamlit as st
 from summarizer import Summarizer
+import nltk
+nltk.download('punkt')
+
+from nltk import tokenize
+
+def label_converter(label):
+    if label == 'LABEL_0':
+        return "Email"
+    elif label == 'LABEL_1':
+        return "Blog"
+    elif label == 'LABEL_2':
+        return "News"
+    elif label == 'LABEL_3':
+        return "Reviews"
+    elif label == 'LABEL_4':
+        return "Poem"
+    elif label == 'LABEL_5':
+        return "Paper"
+    elif label == 'LABEL_6':
+        return "Recipes"
 
 @st.cache_data(show_spinner=False)
 def classfier(text):
-    class_model_path = "bert-base-uncased"
+    class_model_path = "CoReProg/7class_PR"
     tokenizer=AutoTokenizer.from_pretrained(class_model_path,use_fast=False)
     class_task = pipeline("text-classification", model=class_model_path, tokenizer=tokenizer)
-
-    predict = class_task(text)[0]['label']
-
-    return predict
+    output = class_task(text)
+    output[0]["label"] = label_converter(output[0]["label"])
+    output[0]["score"] = round(output[0]["score"]*100,2)
+    return output[0]["score"],output[0]["label"]
 
 @st.cache_data(show_spinner=False)
 def sentiment(text):
@@ -30,3 +50,17 @@ def txtsummary(text, crate):
     zsm_text = model(text, ratio=crate)
 
     return zsm_text
+
+# Summarization mit Paraphrasing falsche Kompressionsrate
+# @st.cache_data(show_spinner=False)
+# def txtsummary2(text, crate):
+#     model = Summarizer('distilbert-base-uncased')
+#     zsm_text = model(text, ratio=crate)
+    
+#     zwstxtl = tokenize.sent_tokenize(zsm_text)
+
+#     model_name = "google/flan-t5-base"
+#     pipe = pipeline("text2text-generation",model = model_name)
+#     output = " ".join([pipe("paraphrase:" + sent)[0]["generated_text"]for sent in zwstxtl])
+
+#     return output

@@ -133,9 +133,8 @@ def text_page():
         # st.write("---")
         erreichte_kompressionsrate = 1 -  (word_counter(zsm_txt)/word_counter(txt))
         st.metric(label="Erreichte Kompressionsrate", value=round(erreichte_kompressionsrate*100,2))
-        # st.markdown(f"__Die erreichte Kompressionsrate beträgt__ **{round(erreichte_kompressionsrate*100,2)}%.**")
         
-
+        # st.markdown(f"__Die erreichte Kompressionsrate beträgt__ **{round(erreichte_kompressionsrate*100,2)}%.**")
         st.markdown("""
                     
 
@@ -149,8 +148,8 @@ def text_page():
 
         c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
-            txtpred = classfier(zsm_txt)
-        kltxt = f"Der Text ist aus der Kategorie {txtpred}."
+            prob,pclass = classfier(zsm_txt)
+        kltxt = f"Es wird mit einer Wahrschienlichkeit von {prob}% stammt der Text aus der Kategorie {pclass}."
         c1.write(kltxt)
 
         c2.markdown("**Sentiment Analyse**")
