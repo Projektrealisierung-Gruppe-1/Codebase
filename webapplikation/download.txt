@@ -1,10 +1,38 @@
 Projektrealisierung Download-Bericht
 
 Original Text
-From our initial set of meetings with the traders regarding consolidated positions, I think we still have the following issues: We don't have a single point of contact from the trading group. We've had three meetings which brought out very different issues from different traders. We really need a single point of contact to help drive the trader requirements and help come to a consensus regarding the requirements. We're getting hit with a lot of different requests, many of which appear to be outside the scope of position consolidation. Go through the list of requests to determine which are in scope for this project and which fall out of scope. Use the above to formulate a project plan. New drill down in the position manager to break out positions by: physical, transport, swaps, options, ... Addition of a curve tab to the position manager to show the real-time values of all curves on which the desk has a position. Each grouped column in the top grid would be tied to a grouped column in the bottom grid. Ability to handle volatility skew and correlations. Ability to revalue all options incrementally throughout the trading day. Eliminate change deals with no economic impact from the TDS deal ticker. Implicit and explicit position break out issues
+From our initial set of meetings with the traders regarding consolidated positions, I think we
+still have the following issues: We don't have a single point of contact from the
+trading group. We've had three meetings which brought out very different issues from different traders.
+We really need a single point of contact to help drive the trader requirements and
+help come to a consensus regarding the requirements. We're getting hit with a lot of
+different requests, many of which appear to be outside the scope of position consolidation. Go
+through the list of requests to determine which are in scope for this project and
+which fall out of scope. Use the above to formulate a project plan. New drill
+down in the position manager to break out positions by: physical, transport, swaps, options, ...
+Addition of a curve tab to the position manager to show the real-time values of
+all curves on which the desk has a position. Each grouped column in the top
+grid would be tied to a grouped column in the bottom grid. Ability to handle
+volatility skew and correlations. Ability to revalue all options incrementally throughout the trading day. Eliminate
+change deals with no economic impact from the TDS deal ticker. Implicit and explicit position
+break out issues
 
 Text Zusammenfassung
-From our initial set of meetings with the traders regarding consolidated positions, I think we still have the following issues: We don't have a single point of contact from the trading group. We've had three meetings which brought out very different issues from different traders. We really need a single point of contact to help drive the trader requirements and help come to a consensus regarding the requirements. We're getting hit with a lot of different requests, many of which appear to be outside the scope of position consolidation. Go through the list of requests to determine which are in scope for this project and which fall out of scope. Use the above to formulate a project plan. New drill down in the position manager to break out positions by: physical, transport, swaps, options, ... Addition of a curve tab to the position manager to show the real-time values of all curves on which the desk has a position. Each grouped column in the top grid would be tied to a grouped column in the bottom grid. Ability to handle volatility skew and correlations. Ability to revalue all options incrementally throughout the trading day. Eliminate change deals with no economic impact from the TDS deal ticker. Implicit and explicit position break out issues
+From our initial set of meetings with the traders regarding consolidated positions, I think we
+still have the following issues: We don't have a single point of contact from the
+trading group. We've had three meetings which brought out very different issues from different traders.
+We really need a single point of contact to help drive the trader requirements and
+help come to a consensus regarding the requirements. We're getting hit with a lot of
+different requests, many of which appear to be outside the scope of position consolidation. Go
+through the list of requests to determine which are in scope for this project and
+which fall out of scope. Use the above to formulate a project plan. New drill
+down in the position manager to break out positions by: physical, transport, swaps, options, ...
+Addition of a curve tab to the position manager to show the real-time values of
+all curves on which the desk has a position. Each grouped column in the top
+grid would be tied to a grouped column in the bottom grid. Ability to handle
+volatility skew and correlations. Ability to revalue all options incrementally throughout the trading day. Eliminate
+change deals with no economic impact from the TDS deal ticker. Implicit and explicit position
+break out issues
 
 Text Klassifizierung
 Der Text ist aus der Kategorie LABEL_1.

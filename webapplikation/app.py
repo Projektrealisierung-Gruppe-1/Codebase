@@ -33,6 +33,8 @@ authenticator = stauth.Authenticate(
 # decomment next line to enable authentification
 # name, authentication_status, username = authenticator.login('Login', 'main')
 
+def word_count(text):
+    return len(text.split())
 
 
 # displays a header and a list of available pages.

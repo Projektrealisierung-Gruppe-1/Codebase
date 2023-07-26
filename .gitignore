@@ -8,6 +8,7 @@ Evaluation/results
 webapplikation/speechtotext.py
 */__pycache__/*
 webapplikation/.env
+pr_env/*
 
 !data_exploration/data/1/meta.txt
 !data_exploration/data/complete_data_subset_link.txt

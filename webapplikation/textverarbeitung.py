@@ -15,6 +15,14 @@ import streamlit as st
 import os
 
 
+# line break logic for txt file
+def insert_linebreaks(input_string, words_per_line=15):
+    words = input_string.split()
+    lines = [words[i:i+words_per_line]
+             for i in range(0, len(words), words_per_line)]
+    return "\n".join(" ".join(line) for line in lines)
+
+
 def text_page():
     
     st.title("Textverarbeitung")
@@ -173,7 +181,18 @@ def text_page():
                             )
         
     elif genre == "txt":
-         pass
+        
+        with open("download.txt", "w") as file:
+                    file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",
+                                     "Original Text\n",
+                                     insert_linebreaks(txt)+"\n"+"\n",
+                                     "Text Zusammenfassung\n",
+                                     insert_linebreaks(zsm_txt)+"\n"+"\n",
+                                     "Text Klassifizierung\n",
+                                     kltxt+"\n"+"\n",
+                                     "Text Sentiment\n",senttxt])
+                    file.close()
+        # pass
 
 
     st.download_button('Download Zusammenfassung', text_contents)
