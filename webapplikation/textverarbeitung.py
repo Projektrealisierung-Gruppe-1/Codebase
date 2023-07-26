@@ -168,8 +168,8 @@ def text_page():
 
         c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
-            txtpred = classfier(zsm_txt)
-        kltxt = f"Der Text ist aus der Kategorie {txtpred}."
+            prob,pclass = classfier(zsm_txt)
+        kltxt = f"Es wird mit einer Wahrschienlichkeit von {prob}% stammt der Text aus der Kategorie {pclass}."
         c1.write(kltxt)
 
         c2.markdown("**Sentiment Analyse**")
