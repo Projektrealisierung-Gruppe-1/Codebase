@@ -1,0 +1,19 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    jbrenz:
+      email: j.brenzinger@outlook.de
+      name: Joshua B
+      password: $2b$12$2UPNnrukkuUCw/sadtVNwu5FpqsZHxPniRlgft6iribV.PCWpIce2
+    admin:
+      email: admin@admin.de
+      name: Admin Anton
+      password: $2b$12$2UPNnrukkuUCw/sadtVNwu5FpqsZHxPniRlgft6iribV.PCWpIce2
+preauthorized:
+  emails:
+  - joshua@wobrenz.de
+
+# hashed pw: admin

@@ -14,6 +14,10 @@ from st_custom_components import st_audiorec
 import streamlit as st
 import os
 
+# word counter helper function
+def word_counter(text):
+    return len(text.split())
+
 
 # line break logic for txt file
 def insert_linebreaks(input_string, words_per_line=15):
@@ -122,10 +126,15 @@ def text_page():
     st.header("Analyse des Textes")
 
     if txt != "":
-        st.subheader("Text Zusammenfassung")
+        st.subheader(f"Text Zusammenfassung")
         with st.spinner('Text wird zusammengefasst...'):
                         zsm_txt = txtsummary(txt,1-(crate/100))
         st.write(zsm_txt)
+        # st.write("---")
+        erreichte_kompressionsrate = 1 -  (word_counter(zsm_txt)/word_counter(txt))
+        st.metric(label="Erreichte Kompressionsrate", value=round(erreichte_kompressionsrate*100,2))
+        # st.markdown(f"__Die erreichte Kompressionsrate beträgt__ **{round(erreichte_kompressionsrate*100,2)}%.**")
+        
 
         st.markdown("""
                     
@@ -157,6 +166,7 @@ def text_page():
 
     st.write("---")
     st.header("Download der Ergebnnisse")
+    
     genre = st.radio(
     "Dateiformat",
     ('docx', 'pdf', 'txt'))
@@ -171,6 +181,7 @@ def text_page():
                             data=PDFbyte,
                             file_name="Download_Bericht.pdf",
                             )
+        
     elif genre == "docx":
         doc = docxcreator(txt,zsm_txt,kltxt,senttxt)
         bio = io.BytesIO()
@@ -179,9 +190,7 @@ def text_page():
                             data=bio.getvalue(),
                             file_name="Download_Bericht.docx",
                             )
-        
     elif genre == "txt":
-        
         with open("download.txt", "w") as file:
                     file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",
                                      "Original Text\n",
@@ -192,10 +201,14 @@ def text_page():
                                      kltxt+"\n"+"\n",
                                      "Text Sentiment\n",senttxt])
                     file.close()
-        # pass
+        
+        textfile = open("download.txt", "r")
+        
+        st.download_button(label="Download Zusammenfassung!",
+                           data=textfile,
+                           file_name="Download_Bericht.txt")
 
 
-    st.download_button('Download Zusammenfassung', text_contents)
 
 
 

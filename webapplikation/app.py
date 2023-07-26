@@ -17,17 +17,17 @@ st.set_page_config(
     )
 
 # authentification / login
-with open('./webapplikation/config.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
+# with open('./webapplikation/config.yaml') as file:
+#     config = yaml.load(file, Loader=SafeLoader)
 
-# create authenticator
-authenticator = stauth.Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+# # create authenticator
+# authenticator = stauth.Authenticate(
+#     config['credentials'],
+#     config['cookie']['name'],
+#     config['cookie']['key'],
+#     config['cookie']['expiry_days'],
+#     config['preauthorized']
+# )
 
 # render login widget+
 # decomment next line to enable authentification
