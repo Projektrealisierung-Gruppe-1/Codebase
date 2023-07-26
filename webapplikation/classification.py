@@ -1,10 +1,6 @@
 from transformers import pipeline, AutoTokenizer
 import streamlit as st
 from summarizer import Summarizer
-import nltk
-nltk.download('punkt')
-
-from nltk import tokenize
 
 def label_converter(label):
     if label == 'LABEL_0':
