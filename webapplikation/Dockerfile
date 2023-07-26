@@ -9,7 +9,7 @@ RUN git clone https://github.com/Coreprog/PR_Frontend.git .
 RUN apt-get update
 RUN apt-get install libasound-dev libportaudio2 libportaudiocpp0 portaudio19-dev -y
 
-RUN pip install -r requirements_test.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 8501
 
