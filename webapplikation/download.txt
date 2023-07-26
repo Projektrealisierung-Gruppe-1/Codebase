@@ -1,26 +1,16 @@
 Projektrealisierung Download-Bericht
 
-Original Text
-Die irische Sängerin Sinéad O'Connor ist im Alter von 56 Jahren gestorben. Das berichtete die
-Zeitung The Irish Times und der irische öffentlich-rechtliche Sender RTE mit Verweis auf O'Connors Familie.
-"Wir sind sehr traurig, dass wir den Tod unserer geliebten Sinéad bekannt geben müssen", zitierte
-RTE eine Mitteilung ihrer Familie. Darin hieß es weiter, ihre Familie und Freunde seien "am
-Boden zerstört" und bäten "in dieser schweren Zeit um Privatsphäre". O'Connor erzielte ihren Durchbruch 1990
-mit ihrer Bearbeitung des Songs Nothing Compares 2 U des US-amerikanischen Sängers Prince, das Lied
-galt als größter Hit des Jahres. Ihr Debütalbum The Lion and the Cobra veröffentlichte sie
-drei Jahre zuvor, das letzte ihrer zehn Alben I'm Not Bossy, I'm the Boss erschien
-2014.
-
 Text Zusammenfassung
-La cantante irlandesa Sinéad O'Connor ha fallecido a la edad de 56 años. Así lo
-informaron el diario The Irish Times y la emisora pública irlandesa RTE citando a la
-familia de O'Connor. "Estamos muy tristes de anunciar la muerte de nuestra querida Sinéad", citó
-RTE un comunicado de su familia. La cantante había publicado tres años antes su álbum
-de debut The Lion and the Cobra, y el último de sus diez álbumes I'm
-Not Bossy, I'm the Boss se publicó en 2014.
+Le dichiarazioni di Friedrich Merz sull'AfD contraddicono il credo antifascista della CDU. L'uomo sa ancora
+cosa sta facendo?
 
 Text Klassifizierung
-Der Text ist aus der Kategorie LABEL_0.
+Es wird mit einer Wahrschienlichkeit von 99.77% stammt der Text aus der Kategorie Reviews.
 
 Text Sentiment
-Mit einer Wahrscheinlichkeit von 97.88% sagt das Modell voraus, dass dieser Text NEGATIVE ist.
+Mit einer Wahrscheinlichkeit von 89.42% sagt das Modell voraus, dass dieser Text POSITIVE ist.
+
+Original Text
+Friedrich Merz widerspricht mit seinen Äußerungen zur AfD dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
+Mann noch, was er tut?
+

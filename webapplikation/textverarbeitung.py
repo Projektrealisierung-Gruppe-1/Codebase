@@ -152,7 +152,7 @@ def text_page():
         st.write(zsm_txt)
 
         # erreichte kompressionsrate berechnen
-        erreichte_kompressionsrate = 1 -  (word_counter(zsm_txt)/word_counter(txt))
+        erreichte_kompressionsrate = 1 - (word_counter(zsm_txt)/word_counter(txt))
         
         
         # anzeigewidget für erreichte kompressionsrate
@@ -212,13 +212,16 @@ def text_page():
         elif genre == "txt":
             with open("download.txt", "w") as file:
                         file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",
-                                        "Original Text\n",
-                                        insert_linebreaks(txt)+"\n"+"\n",
                                         "Text Zusammenfassung\n",
                                         insert_linebreaks(zsm_txt)+"\n"+"\n",
                                         "Text Klassifizierung\n",
                                         kltxt+"\n"+"\n",
-                                        "Text Sentiment\n",senttxt])
+                                        "Text Sentiment\n",
+                                        senttxt +"\n"+"\n",
+                                        "Original Text\n",
+                                        insert_linebreaks(txt)+"\n"+"\n",
+                                        
+                                        ])
                         file.close()
             
             textfile = open("download.txt", "r")
