@@ -30,6 +30,11 @@ def insert_linebreaks(input_string, words_per_line=15):
 def text_page():
     zsm_txt = ""
     
+    # initialize deepl translator object
+    load_dotenv()
+    DEEPLKEY = os.getenv("DEEPLKEY")
+    translator = deepl.Translator(DEEPLKEY)
+    
     st.title("Textverarbeitung")
     st.write("---")
     st.header("Text Gegebenheit")
@@ -46,16 +51,16 @@ def text_page():
         txt = ""
         uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
         if uploaded_file is not None:
-            st.write(uploaded_file.type)
-            st.write(uploaded_file.name)
+            # st.write(uploaded_file.type)
+            # st.write(uploaded_file.name)
             
-            st.write(uploaded_file.name[-3:])
+            # st.write(uploaded_file.name[-3:])
             # check uploaded file for data type
             if "ocx" in uploaded_file.name[-3:]:
-                st.write("docx erkannt")   
+                # st.write("docx erkannt")   
 
                 txt = docx2txt.process(uploaded_file)
-                st.write(txt)
+                # st.write(txt)
                 
                 
             if "doc" in uploaded_file.name[-3:]:
@@ -63,34 +68,28 @@ def text_page():
 
 
             if "pdf" in uploaded_file.name[-3:]:
-                st.write("pdf erkannt")           
+                # st.write("pdf erkannt")           
  
                 reader = PdfReader(uploaded_file)
                 for i in range(len(reader.pages)):
                     content = reader.pages[i].extract_text()
                     txt = txt + content
-                st.write(txt) 
+                # st.write(txt) 
                 
                 
             if "txt" in uploaded_file.name[-3:]:
-                st.write("txt erkannt")  
+                # st.write("txt erkannt")  
 
                 for line in uploaded_file:
                     txt = txt + "\n" + line.decode("utf-8")
-                st.write(txt)
+                # st.write(txt)
                 
 
     elif optch == "Textfeld":
         txt = st.text_area("Your text:",key= "NLP", height=400)
-        load_dotenv()
-        DEEPLKEY = os.getenv("DEEPLKEY")
-        translator = deepl.Translator(DEEPLKEY)
+    
         # target_language = "EN-US"
     
-    
-
-
-
     elif optch == "Speech to Text":
         txt = ""
 
@@ -133,11 +132,9 @@ def text_page():
     # if selected_language != "":
     #     st.write(selected_language)
     st.write("---") 
-        
-
     crate = st.slider('Kompressionsrate', 20, 80, 60)
-
     st.write("---")
+    
     st.header("Analyse des Textes")
 
     if txt != "":
@@ -148,7 +145,8 @@ def text_page():
             zsm_txt = txtsummary(en_txt,1-(crate/100))
             
         # übersetzen der englischen zusammenfassung in zielsprache
-        zsm_txt = str(translator.translate_text(zsm_txt, target_lang=selected_language))
+        if zsm_txt != "":
+            zsm_txt = str(translator.translate_text(zsm_txt, target_lang=selected_language))
             
         # anzeigen der zusammenfassung
         st.write(zsm_txt)
