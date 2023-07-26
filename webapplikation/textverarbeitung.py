@@ -97,16 +97,16 @@ def text_page():
 
         if wav_audio_data is not None:
 
-            if os.path.isfile('webapplikation/audio.wav'):
-                with open('webapplikation/audio.wav', mode='bw') as f:
+            if os.path.isfile('audio.wav'):
+                with open('audio.wav', mode='bw') as f:
                     f.write(wav_audio_data)
             # Your error handling goes here
             else:
-                with open('webapplikation/audio.wav', mode='bx+') as f:
+                with open('audio.wav', mode='bx+') as f:
                     f.write(wav_audio_data)
             
             pipe = pipeline("automatic-speech-recognition", model="openai/whisper-small")
-            txt = pipe("webapplikation/audio.wav")["text"]
+            txt = pipe("audio.wav")["text"]
             st.write(txt)
     
     # txt translator object für modell

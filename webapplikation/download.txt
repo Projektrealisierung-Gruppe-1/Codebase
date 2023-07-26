@@ -1,16 +1,16 @@
 Projektrealisierung Download-Bericht
 
 Text Zusammenfassung
-Le dichiarazioni di Friedrich Merz sull'AfD contraddicono il credo antifascista della CDU. L'uomo sa ancora
-cosa sta facendo?
+Die Äußerungen von Friedrich Merz zur AfD widersprechen dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
+Mann noch, was er da tut?
 
 Text Klassifizierung
-Es wird mit einer Wahrschienlichkeit von 99.77% stammt der Text aus der Kategorie Reviews.
+Es wird mit einer Wahrschienlichkeit von 79.02% stammt der Text aus der Kategorie Reviews.
 
 Text Sentiment
-Mit einer Wahrscheinlichkeit von 89.42% sagt das Modell voraus, dass dieser Text POSITIVE ist.
+Mit einer Wahrscheinlichkeit von 99.07% sagt das Modell voraus, dass dieser Text NEGATIVE ist.
 
 Original Text
-Friedrich Merz widerspricht mit seinen �u�erungen zur AfD dem antifaschistischen Gr�ndungsbekenntnis der CDU. Wei� der
+Friedrich Merz widerspricht mit seinen Äußerungen zur AfD dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
 Mann noch, was er tut?
 
