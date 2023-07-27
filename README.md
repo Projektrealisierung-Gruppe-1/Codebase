@@ -24,7 +24,8 @@ Testdata/
   - Dieser Ordner enthält Testdatensätze in verschiedenen Dateitypen, die zur Evaluierung und zum Testen der verschiedenen Modelle und Funktionen der Web-Applikationen dienen.
 
 ## Run this Application
-
+`cd webapplikation/`
+`streamlit run app.py`
 
 ## Abgabe 
 
