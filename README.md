@@ -1,7 +1,7 @@
 # Projektrealisierung_Gruppe_1
 Projektrealisierung Application Respository (Abgabe: Joshua Brenzinger, Constantin Rech, Pascal Breucker und Luis Steinert)
 
-Entwicklung eines NLP Tools zur Textzusammenfassung- und Kategorisierung
+Entwicklung eines NLP Tools zur Textzusammenfassung, Textkategorisierung und Stimmungsanalyse.
 
 ---
 ## Folderstructure:
