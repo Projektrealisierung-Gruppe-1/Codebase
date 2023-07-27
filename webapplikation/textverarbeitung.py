@@ -2,8 +2,6 @@ import streamlit as st
 from classification import classfier,sentiment,txtsummary
 import docx2txt
 from downloadcreator import pdfcreator,docxcreator
-# import textract
-import pandas as pd
 from PyPDF2 import PdfReader
 from dotenv import load_dotenv
 import io
@@ -39,6 +37,7 @@ def text_page():
     st.write("---")
     st.header("Text Gegebenheit")
 
+    # Auswahl für verschiede Texteingabemöglichkeiten
     optch = st.radio(
         "Dateneingabe",
         ["Textfeld", "Dateiupload","Speech to Text"],
@@ -47,14 +46,12 @@ def text_page():
 
     st.write("---")
 
+    # Umsetzung des Dateiuploads
     if optch == "Dateiupload":
         txt = ""
         uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
         if uploaded_file is not None:
-            # st.write(uploaded_file.type)
-            # st.write(uploaded_file.name)
-            
-            # st.write(uploaded_file.name[-3:])
+
             # check uploaded file for data type
             if "ocx" in uploaded_file.name[-3:]:
                 # st.write("docx erkannt")   
@@ -84,12 +81,13 @@ def text_page():
                     txt = txt + "\n" + line.decode("utf-8")
                 # st.write(txt)
                 
-
+    # Umsetzung des Textfeld
     elif optch == "Textfeld":
         txt = st.text_area("Your text:",key= "NLP", height=400)
     
         # target_language = "EN-US"
-    
+
+    # Umsetzung des Speech2Text
     elif optch == "Speech to Text":
         txt = ""
 
@@ -160,16 +158,15 @@ def text_page():
         
 
         # klassifizierungs bereich in frontend
-        st.subheader("Klassifizierungen")
+        st.subheader("Klassifizierungen") 
 
-        #if     
-
+        # Darstellen von Text Klassifzierung & Text Sentiment
         c1,c2 =  st.columns([1, 1])
 
         c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
             prob,pclass = classfier(zsm_txt)
-        kltxt = f"Es wird mit einer Wahrschienlichkeit von {prob}% stammt der Text aus der Kategorie {pclass}."
+        kltxt = f"Es wird mit einer Wahrscheinlichkeit von {prob}% stammt der Text aus der Kategorie {pclass}."
         c1.write(kltxt)
 
         c2.markdown("**Sentiment Analyse**")
@@ -184,13 +181,16 @@ def text_page():
     
 
     st.write("---")
-    st.header("Download der Ergebnnisse")
+    # Download Bereich
+    st.header("Download der Ergebnisse")
     
     if zsm_txt != "":
         genre = st.radio(
         "Dateiformat",
         ('docx', 'pdf', 'txt'))
 
+
+        #PDF Download Bereich
         if genre == "pdf":
             pdfcreator(txt,zsm_txt,kltxt,senttxt)
             with open("download.pdf", "rb") as pdf_file:
@@ -201,6 +201,7 @@ def text_page():
                                 file_name="Download_Bericht.pdf",
                                 )
             
+        #Docx Download Bereich
         elif genre == "docx":
             doc = docxcreator(txt,zsm_txt,kltxt,senttxt)
             bio = io.BytesIO()
@@ -209,6 +210,8 @@ def text_page():
                                 data=bio.getvalue(),
                                 file_name="Download_Bericht.docx",
                                 )
+        
+        #TXT Download Bereich
         elif genre == "txt":
             with open("download.txt", "w") as file:
                         file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",

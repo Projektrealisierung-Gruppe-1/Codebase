@@ -2,6 +2,7 @@ from transformers import pipeline, AutoTokenizer
 import streamlit as st
 from summarizer import Summarizer
 
+# Wandelt LABEL_x in eigentliches Label um
 def label_converter(label):
     if label == 'LABEL_0':
         return "Email"
@@ -18,6 +19,7 @@ def label_converter(label):
     elif label == 'LABEL_6':
         return "Recipes"
 
+# Führt Textkalssifizierung aus
 @st.cache_data(show_spinner=False)
 def classfier(text):
     class_model_path = "CoReProg/7class_PR"
@@ -28,6 +30,7 @@ def classfier(text):
     output[0]["score"] = round(output[0]["score"]*100,2)
     return output[0]["score"],output[0]["label"]
 
+# Führt Textsentiment Analyse aus
 @st.cache_data(show_spinner=False)
 def sentiment(text):
     sentiment_model_path = "siebert/sentiment-roberta-large-english"
@@ -40,6 +43,7 @@ def sentiment(text):
 
     return prob, pred
 
+# Textzusammenfassung des Textes
 @st.cache_data(show_spinner=False)
 def txtsummary(text, crate):
     model = Summarizer('distilbert-base-uncased')

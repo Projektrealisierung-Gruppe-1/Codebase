@@ -1,16 +1,32 @@
 Projektrealisierung Download-Bericht
 
 Text Zusammenfassung
-Die Äußerungen von Friedrich Merz zur AfD widersprechen dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
-Mann noch, was er da tut?
+Project Realization Download Report Text Summary Soldiers in the West African country of Niger have
+announced the overthrow of the government of President Mohamed Bazoum announced. The "defense and security
+forces" had "decided to put an end to the regime that you know," Colonel Amadaou
+Abdramane told the state television station RTN late Wednesday night. Text Classification There is a
+98.18% probability that the text comes from the News category. All institutions" in the country
+would be suspended "until further notice," he added suspended, borders closed and a 10 p.m.
+to five a.m. curfew imposed.
 
 Text Klassifizierung
-Es wird mit einer Wahrschienlichkeit von 79.02% stammt der Text aus der Kategorie Reviews.
+Es wird mit einer Wahrscheinlichkeit von 97.54% stammt der Text aus der Kategorie Email.
 
 Text Sentiment
-Mit einer Wahrscheinlichkeit von 99.07% sagt das Modell voraus, dass dieser Text NEGATIVE ist.
+Mit einer Wahrscheinlichkeit von 99.43% sagt das Modell voraus, dass dieser Text NEGATIVE ist.
 
 Original Text
-Friedrich Merz widerspricht mit seinen Äußerungen zur AfD dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
-Mann noch, was er tut?
+Projektrealisierung Download-Bericht Text Zusammenfassung Soldaten in dem westafrikanischen Land Niger haben den Sturz der Regierung
+von Präsident Mohamed Bazoum angekündigt. Die "Verteidigungs- und Sicherheitskräfte" hätten "beschlossen, dem Regime, das Sie
+kennen, ein Ende zu setzen", sagte Oberst Amadaou Abdramane am späten Mittwochabend dem staatlichen Fernsehsender
+RTN. " Text Klassifizierung Es wird mit einer Wahrschienlichkeit von 98.18% stammt der Text aus
+der Kategorie News. Text Sentiment Mit einer Wahrscheinlichkeit von 99.03% sagt das Modell voraus, dass
+dieser Text NEGATIVE ist.Original Text Soldaten im westafrikanischen Land Niger haben den Sturz der Regierung
+von Präsident Mohamed Bazoum verkündet. Die "Verteidigungs- und Sicherheitskräfte" hätten "entschieden, dem Regime, das Sie
+kennen, ein Ende zu setzen", sagte Oberst Amadaou Abdramane am späten Mittwochabend im nationalen Fernsehsender
+RTN. "Alle Institutionen" des Landes würden "bis auf Weiteres" außer Kraft gesetzt, die Grenzen geschlossen
+und eine Ausgangssperre von 22 bis fünf Uhr verhängt. Das Gesetz der Oase Abdramane sprach
+von einem sogenannten Nationalen Rat für die Rettung des Vaterlandes, der die Macht übernommen habe.
+Offen war zunächst, ob Abdramane und die neun weiteren Soldaten im Fernsehen für die ganze
+Armee sprachen.
 
