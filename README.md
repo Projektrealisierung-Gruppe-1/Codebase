@@ -9,7 +9,6 @@ Entwicklung eines NLP Tools zur Textzusammenfassung, Textkategorisierung und Sti
 Evaluation/
   - `hf_classification`:
   - `hf_sentiment`:
-  - `hf_summarization`:
   - `summeval`:
 
 Exploration/
