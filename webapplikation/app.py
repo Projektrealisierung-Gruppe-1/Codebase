@@ -63,9 +63,6 @@ def main():
     
     elif page == "Modellinformationen":
         modell_page()
-
-    # elif page == "Speech-to-text":
-    #     speech_to_text_page()
         
     elif page == "Accessability":
         accessability_page()

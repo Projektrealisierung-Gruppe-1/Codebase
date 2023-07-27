@@ -139,14 +139,6 @@ def accessability_page(): # generating a color theme editor page in a Streamlit 
     with col3:
         fragments.contrast_summary("Text/Secondary background", text_color, secondary_background_color)
 
-    # st.subheader("Command line argument")
-    # st.code(f"""
-    # streamlit run app.py \\
-    #     --theme.primaryColor="{primary_color}" \\
-    #     --theme.backgroundColor="{background_color}" \\
-    #     --theme.secondaryBackgroundColor="{secondary_background_color}" \\
-    #     --theme.textColor="{text_color}"
-    # """)
 
     if st.checkbox("Apply theme to this page"):
         st.info("Select 'Custom Theme' in the settings dialog to see the effect")
