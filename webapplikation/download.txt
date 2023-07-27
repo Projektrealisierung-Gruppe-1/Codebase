@@ -1,49 +1,16 @@
 Projektrealisierung Download-Bericht
 
-Original Text
-U.S. actor Kevin Spacey has been acquitted of charges of sexually assaulting several men in
-the London criminal trial. After more than twelve hours of deliberations, the jury found Spacey
-not guilty on all charges, the jury announced. KEVIN SPACEY: More on Me Too MeToo
-- The most important thing from Z+: Kevin Spacey, the accused MeToo: Harvey's Shame Abuse
-in the film industry: Better to shut up Spacey, who turned 64 this Wednesday, thanked
-the jury after the verdict was announced. He now has to process what happened, the
-actor said, but is enormously grateful to the jury for taking the time to carefully
-consider all the evidence before coming to a decision. "And I'm humbled by the outcome
-today," he said. Had Spacey been found guilty, he would have faced jail time. Prosecutors
-had accused the two-time Oscar winner of twelve counts of sexual assault, some of them
-serious, against four men. The accusations range from harassment to coercion for sexual intercourse. In
-several cases, Spacey allegedly grabbed the men's crotches, and in one case oral sex was
-involved. The assaults allegedly occurred between 2001 and 2013 in London and the county of
-Gloucestershire. Spacey was artistic director at London's renowned Old Vic theater from 2004 to 2015.
-Prosecution called Spacey a "sexual bully" In the trial at Southwark Crown Court, which lasted
-about four weeks, the prosecution had called the Oscar winner a "sexual bully" who exploited
-his power. Spacey denied the allegations, or stated that it had been consensual sex. The
-twelve jurors found him not guilty on all charges on Wednesday after three days of
-deliberations. Newsletter What we read - The ZEIT Literary Newsletter In the free newsletter, ZEIT
-journalists, actors, politicians and other readers talk about the books that are currently inspiring them.
-Subscribe now! Your e-mail address REGISTER By registering, you acknowledge the privacy policy. The previously
-successful actor's career was abruptly interrupted by allegations raised in the wake of the #MeToo
-debate. Netflix ended its collaboration on House of Cards and sued Spacey for damages after
-complaints about him surfaced from on-set employees. The Old Vic theater also distanced itself. Scenes
-featuring Spacey in the thriller All The Money in the World were subsequently removed. Even
-before the trial began in London, Spacey had expressed the hope that he would be
-able to resume his successes if acquitted.
-
 Text Zusammenfassung
-U.S. actor Kevin Spacey has been acquitted of charges of sexually assaulting several men in
-the London criminal trial. After more than twelve hours of deliberations, the jury found Spacey
-not guilty on all charges, the jury announced. He now has to process what happened,
-the actor said, but is enormously grateful to the jury for taking the time to
-carefully consider all the evidence before coming to a decision. " The accusations range from
-harassment to coercion for sexual intercourse. The assaults allegedly occurred between 2001 and 2013 in
-London and the county of Gloucestershire. Prosecution called Spacey a "sexual bully" In the trial
-at Southwark Crown Court, which lasted about four weeks, the prosecution had called the Oscar
-winner a "sexual bully" who exploited his power. Spacey denied the allegations, or stated that
-it had been consensual sex. Your e-mail address REGISTER By registering, you acknowledge the privacy
-policy. The Old Vic theater also distanced itself.
+Die Äußerungen von Friedrich Merz zur AfD widersprechen dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
+Mann noch, was er da tut?
 
 Text Klassifizierung
-Der Text ist aus der Kategorie LABEL_1.
+Es wird mit einer Wahrschienlichkeit von 79.02% stammt der Text aus der Kategorie Reviews.
 
 Text Sentiment
-Mit einer Wahrscheinlichkeit von 99.85% sagt das Modell voraus, dass dieser Text POSITIVE ist.
+Mit einer Wahrscheinlichkeit von 99.07% sagt das Modell voraus, dass dieser Text NEGATIVE ist.
+
+Original Text
+Friedrich Merz widerspricht mit seinen Äußerungen zur AfD dem antifaschistischen Gründungsbekenntnis der CDU. Weiß der
+Mann noch, was er tut?
+

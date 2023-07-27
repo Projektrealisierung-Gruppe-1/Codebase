@@ -28,6 +28,12 @@ def insert_linebreaks(input_string, words_per_line=15):
 
 
 def text_page():
+    zsm_txt = ""
+    
+    # initialize deepl translator object
+    load_dotenv()
+    DEEPLKEY = os.getenv("DEEPLKEY")
+    translator = deepl.Translator(DEEPLKEY)
     
     st.title("Textverarbeitung")
     st.write("---")
@@ -43,18 +49,18 @@ def text_page():
 
     if optch == "Dateiupload":
         txt = ""
-        uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt','doc'])
+        uploaded_file = st.file_uploader("Choose a file",accept_multiple_files=False,type=['docx', 'pdf', 'txt'])
         if uploaded_file is not None:
-            st.write(uploaded_file.type)
-            st.write(uploaded_file.name)
+            # st.write(uploaded_file.type)
+            # st.write(uploaded_file.name)
             
-            st.write(uploaded_file.name[-3:])
+            # st.write(uploaded_file.name[-3:])
             # check uploaded file for data type
             if "ocx" in uploaded_file.name[-3:]:
-                st.write("docx erkannt")   
+                # st.write("docx erkannt")   
 
                 txt = docx2txt.process(uploaded_file)
-                st.write(txt)
+                # st.write(txt)
                 
                 
             if "doc" in uploaded_file.name[-3:]:
@@ -62,37 +68,28 @@ def text_page():
 
 
             if "pdf" in uploaded_file.name[-3:]:
-                st.write("pdf erkannt")           
+                # st.write("pdf erkannt")           
  
                 reader = PdfReader(uploaded_file)
                 for i in range(len(reader.pages)):
                     content = reader.pages[i].extract_text()
                     txt = txt + content
-                st.write(txt) 
+                # st.write(txt) 
                 
                 
             if "txt" in uploaded_file.name[-3:]:
-                st.write("txt erkannt")  
+                # st.write("txt erkannt")  
 
                 for line in uploaded_file:
                     txt = txt + "\n" + line.decode("utf-8")
-                st.write(txt)
+                # st.write(txt)
                 
 
     elif optch == "Textfeld":
-        txt = st.text_area("Your text:",key= "NLP")
-        load_dotenv()
-        DEEPLKEY = os.getenv("DEEPLKEY")
-        translator = deepl.Translator(DEEPLKEY)
-        target_language = "EN-US"
+        txt = st.text_area("Your text:",key= "NLP", height=400)
     
-        if txt != "":
-            txt = str(translator.translate_text(txt, target_lang=target_language))
-            if txt != "":
-                st.write(f"""Der eingegebene Text auf Englisch ist: \\
-                        {txt}""")
+        # target_language = "EN-US"
     
-
     elif optch == "Speech to Text":
         txt = ""
 
@@ -100,47 +97,69 @@ def text_page():
 
         if wav_audio_data is not None:
 
-            if os.path.isfile('webapplikation/audio.wav'):
-                with open('webapplikation/audio.wav', mode='bw') as f:
+            if os.path.isfile('audio.wav'):
+                with open('audio.wav', mode='bw') as f:
                     f.write(wav_audio_data)
             # Your error handling goes here
             else:
-                with open('webapplikation/audio.wav', mode='bx+') as f:
+                with open('audio.wav', mode='bx+') as f:
                     f.write(wav_audio_data)
             
             pipe = pipeline("automatic-speech-recognition", model="openai/whisper-small")
-            txt = pipe("webapplikation/audio.wav")["text"]
+            txt = pipe("audio.wav")["text"]
             st.write(txt)
-        
+    
+    # txt translator object für modell
+    if txt != "":
+        en_txt = str(translator.translate_text(txt, target_lang="EN-US"))
+        # if txt != "":
+        #     st.write(f"""Der eingegebene Text auf Englisch ist: \\
+        #             {txt}""")  
     
     
     # translate logic
     # load dotenv secrets
-
     
-    
-
-    crate = st.slider('Kompressionsrate', 20, 80, 60)
-
     st.write("---")
+    
+    # widget um zielsprache auszuwählen
+    selected_language = ""
+    selected_language = st.radio(
+        "Ziel Sprache der Zusammenfassung",
+        ('DE', 'EN-US', 'FR', 'IT', 'ES'),
+        horizontal=True)
+    
+    # if selected_language != "":
+    #     st.write(selected_language)
+    st.write("---") 
+    crate = st.slider('Kompressionsrate', 20, 80, 60)
+    st.write("---")
+    
     st.header("Analyse des Textes")
 
     if txt != "":
         st.subheader(f"Text Zusammenfassung")
+        
+        # zusammenfassung
         with st.spinner('Text wird zusammengefasst...'):
-                        zsm_txt = txtsummary(txt,1-(crate/100))
+            zsm_txt = txtsummary(en_txt,1-(crate/100))
+            
+        # übersetzen der englischen zusammenfassung in zielsprache
+        if zsm_txt != "":
+            zsm_txt = str(translator.translate_text(zsm_txt, target_lang=selected_language))
+            
+        # anzeigen der zusammenfassung
         st.write(zsm_txt)
-        # st.write("---")
-        erreichte_kompressionsrate = 1 -  (word_counter(zsm_txt)/word_counter(txt))
-        st.metric(label="Erreichte Kompressionsrate", value=round(erreichte_kompressionsrate*100,2))
-        # st.markdown(f"__Die erreichte Kompressionsrate beträgt__ **{round(erreichte_kompressionsrate*100,2)}%.**")
+
+        # erreichte kompressionsrate berechnen
+        erreichte_kompressionsrate = 1 - (word_counter(zsm_txt)/word_counter(txt))
+        
+        
+        # anzeigewidget für erreichte kompressionsrate
+        st.metric(label="Erreichte Kompressionsrate", value=f"{round(erreichte_kompressionsrate*100,2)}%")
         
 
-        st.markdown("""
-                    
-
-        """)
-        
+        # klassifizierungs bereich in frontend
         st.subheader("Klassifizierungen")
 
         #if     
@@ -149,8 +168,8 @@ def text_page():
 
         c1.markdown("**Text Klassifzierung**")
         with st.spinner('Classification wird durchgeführt...'):
-            txtpred = classfier(zsm_txt)
-        kltxt = f"Der Text ist aus der Kategorie {txtpred}."
+            prob,pclass = classfier(zsm_txt)
+        kltxt = f"Es wird mit einer Wahrschienlichkeit von {prob}% stammt der Text aus der Kategorie {pclass}."
         c1.write(kltxt)
 
         c2.markdown("**Sentiment Analyse**")
@@ -167,46 +186,49 @@ def text_page():
     st.write("---")
     st.header("Download der Ergebnnisse")
     
-    genre = st.radio(
-    "Dateiformat",
-    ('docx', 'pdf', 'txt'))
+    if zsm_txt != "":
+        genre = st.radio(
+        "Dateiformat",
+        ('docx', 'pdf', 'txt'))
 
-    text_contents = '''This is some text'''
-    if genre == "pdf":
-        pdfcreator(txt,zsm_txt,kltxt,senttxt)
-        with open("download.pdf", "rb") as pdf_file:
-            PDFbyte = pdf_file.read()
+        if genre == "pdf":
+            pdfcreator(txt,zsm_txt,kltxt,senttxt)
+            with open("download.pdf", "rb") as pdf_file:
+                PDFbyte = pdf_file.read()
 
-        st.download_button(label="Download Zusammenfassung!",
-                            data=PDFbyte,
-                            file_name="Download_Bericht.pdf",
-                            )
-        
-    elif genre == "docx":
-        doc = docxcreator(txt,zsm_txt,kltxt,senttxt)
-        bio = io.BytesIO()
-        doc.save(bio)
-        st.download_button(label="Download Zusammenfassung!",
-                            data=bio.getvalue(),
-                            file_name="Download_Bericht.docx",
-                            )
-    elif genre == "txt":
-        with open("download.txt", "w") as file:
-                    file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",
-                                     "Original Text\n",
-                                     insert_linebreaks(txt)+"\n"+"\n",
-                                     "Text Zusammenfassung\n",
-                                     insert_linebreaks(zsm_txt)+"\n"+"\n",
-                                     "Text Klassifizierung\n",
-                                     kltxt+"\n"+"\n",
-                                     "Text Sentiment\n",senttxt])
-                    file.close()
-        
-        textfile = open("download.txt", "r")
-        
-        st.download_button(label="Download Zusammenfassung!",
-                           data=textfile,
-                           file_name="Download_Bericht.txt")
+            st.download_button(label="Download Zusammenfassung!",
+                                data=PDFbyte,
+                                file_name="Download_Bericht.pdf",
+                                )
+            
+        elif genre == "docx":
+            doc = docxcreator(txt,zsm_txt,kltxt,senttxt)
+            bio = io.BytesIO()
+            doc.save(bio)
+            st.download_button(label="Download Zusammenfassung!",
+                                data=bio.getvalue(),
+                                file_name="Download_Bericht.docx",
+                                )
+        elif genre == "txt":
+            with open("download.txt", "w") as file:
+                        file.writelines(["Projektrealisierung Download-Bericht"+"\n"+"\n",
+                                        "Text Zusammenfassung\n",
+                                        insert_linebreaks(zsm_txt)+"\n"+"\n",
+                                        "Text Klassifizierung\n",
+                                        kltxt+"\n"+"\n",
+                                        "Text Sentiment\n",
+                                        senttxt +"\n"+"\n",
+                                        "Original Text\n",
+                                        insert_linebreaks(txt)+"\n"+"\n",
+                                        
+                                        ])
+                        file.close()
+            
+            textfile = open("download.txt", "r")
+            
+            st.download_button(label="Download Zusammenfassung!",
+                            data=textfile,
+                            file_name="Download_Bericht.txt")
 
 
 
