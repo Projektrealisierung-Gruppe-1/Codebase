@@ -7,9 +7,9 @@ Entwicklung eines NLP Tools zur Textzusammenfassung, Textkategorisierung und Sti
 ## Folderstructure:
 
 Evaluation/
-  - `hf_classification`:
-  - `hf_sentiment`:
-  - `summeval`:
+  - `hf_classification`: Dateien für Klassifikationsmodell
+  - `hf_sentiment`: Dateien für Sentimentanalyse
+  - `summeval`: Dateien für Zusammenfassung
 
 Exploration/
   - `classification_exploration.ipynb`:
@@ -25,6 +25,7 @@ Testdata/
 
 ## Run this Application
 `cd webapplikation/`
+
 `streamlit run app.py`
 
 ## Abgabe 
