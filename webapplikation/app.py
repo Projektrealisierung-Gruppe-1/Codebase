@@ -44,6 +44,7 @@ def draw_all(key,plot=False):
     ## Folgende Pages können gefunden werden
     1. Textverarbeitung
     2. Modellinformationen
+    3. Accessability
 
     """)
 
