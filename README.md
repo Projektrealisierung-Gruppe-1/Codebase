@@ -24,6 +24,9 @@ webapplikation/
 Testdata/
   - Dieser Ordner enthält Testdatensätze in verschiedenen Dateitypen, die zur Evaluierung und zum Testen der verschiedenen Modelle und Funktionen der Web-Applikationen dienen.
 
+## Run this Application
+
+
 ## Datasets (incomplete and old)
 
 1. https://www.kaggle.com/datasets/benjaminawd/new-york-times-articles-comments-2020
