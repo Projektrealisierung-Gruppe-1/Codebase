@@ -10,12 +10,8 @@ Evaluation/
   - `hf_classification`: Dateien für Klassifikationsmodell
   - `hf_sentiment`: Dateien für Sentimentanalyse
   - `summeval`: Dateien für Zusammenfassung
-
-Exploration/
-  - `classification_exploration.ipynb`:
-  - `sentiment_exploration.ipynb`:
-  - `summarization_exploration.ipynb`:
-
+  - `Exploration/`: Explorative Analyse
+    
 webapplikation/
   - `app.py`: Hauptfile der Webapplikation, wird durch Streamlit aufgerufen und gestartet
   - `other files`: Weitere Funktionalitäten und Anwendungsseiten, die durch das Hauptscript aufgerufen werden (e.g. classification.py o. welcomepage.py)
