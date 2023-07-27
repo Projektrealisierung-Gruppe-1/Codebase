@@ -27,3 +27,6 @@ Testdata/
 ## Run this Application
 
 
+## Abgabe 
+
+Siehe die finale Abgabe der Dokumente (Präsentation, Dokumentation und Abschlussbericht) **Abgabe-MS-3** https://github.com/Projektrealisierung-Gruppe-1/Abgabe-MS-3
